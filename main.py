@@ -41,7 +41,26 @@ S = [['.....',
       '..00.',
       '...0.',
       '.....']]
-
+C = [['.....',
+      '.....',
+      '.0.0.',
+      '.000.',
+      '.....'],
+      ['.....',
+      '.00..',
+      '.0...',
+      '.00..',
+      '.....'],
+     ['.....',
+      '.000.',
+      '.0.0.',
+      '.....',
+      '.....'],
+       ['.....',
+      '.00..',
+      '..0..',
+      '.00..',
+      '.....']]
 Z = [['.....',
       '.....',
       '.00..',
@@ -133,8 +152,8 @@ T = [['.....',
       '..0..',
       '.....']]
 
-shapes = [S, Z, I, O, J, L, T]
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+shapes = [C, S, Z, I, O, J, L, T]
+shape_colors = [(102,222,50), (0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
 # index 0 - 6 represent shape
 
 
@@ -351,9 +370,9 @@ def main(win):  # *
                     if not(valid_space(current_piece, grid)):
                         current_piece.x -= 1
                 if event.key == pygame.K_DOWN:
-                    current_piece.y += 1
+                    current_piece.y += 4
                     if not(valid_space(current_piece, grid)):
-                        current_piece.y -= 1
+                        current_piece.y -= 4
                 if event.key == pygame.K_UP:
                     current_piece.rotation += 1
                     if not(valid_space(current_piece, grid)):
@@ -393,9 +412,9 @@ def main_menu(win):  # *
     while run:
         win.fill(BLACK)
         mensaje_en_pantalla("TETRIS", RED, 290, 110,font)
-        mensaje_en_pantalla("1. Jugar", WHITE, 100, 220,font)
-        mensaje_en_pantalla("2. Puntuacion más alta", WHITE, 100, 330,font)
-        mensaje_en_pantalla("3. Salir", WHITE, 100, 440,font)
+        mensaje_en_pantalla("1. Play", WHITE, 100, 220,font)
+        mensaje_en_pantalla("2. High Score", WHITE, 100, 330,font)
+        mensaje_en_pantalla("3. Close", WHITE, 100, 440,font)
 
         pygame.display.update()
         for event in pygame.event.get():
